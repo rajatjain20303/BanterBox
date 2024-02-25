@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "25758293153",
+    "project_id": "banterbox-f8f7d",
+    "storage_bucket": "banterbox-f8f7d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:25758293153:android:33b41e406779f6816624e0",
+        "android_client_info": {
+          "package_name": "com.example.banterbox"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDu0IRekX3Dr1eBmO6FqeDwAejJU74hXN8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
