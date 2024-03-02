@@ -10,29 +10,33 @@ import com.example.banterbox.data.Room
 import com.example.banterbox.data.RoomRepository
 import kotlinx.coroutines.launch
 
-class RoomViewModel:ViewModel(){
-      private val _rooms =MutableLiveData<List<Room>?>()
-      val rooms: MutableLiveData<List<Room>?> get() = _rooms
-      private val roomRepository : RoomRepository
-      init{
+
+class RoomViewModel : ViewModel() {
+
+      private val _rooms = MutableLiveData<List<Room>>()
+      val rooms: MutableLiveData<List<Room>> get() = _rooms
+      private val roomRepository: RoomRepository
+      init {
             roomRepository = RoomRepository(Injection.instance())
             loadRooms()
       }
 
-      fun createRoom(name:String){
+      fun createRoom(name: String) {
             viewModelScope.launch {
                   roomRepository.createRoom(name)
             }
       }
 
-      fun loadRooms(){
-            viewModelScope.launch{
-                  when(val result = roomRepository.getRooms()){
-                        is Success ->_rooms.value = result.data
-                        else -> {
+      fun loadRooms() {
+            viewModelScope.launch {
+                  when (val result = roomRepository.getRooms()) {
+                        is Success -> _rooms.value = result.data ?: emptyList()
+                        is Error -> {
 
                         }
                   }
             }
       }
+
 }
+

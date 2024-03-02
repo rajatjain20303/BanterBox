@@ -32,6 +32,8 @@ import com.example.banterbox.viewmodel.AuthViewModel
             var firstName by remember { mutableStateOf("") }
             var lastName by remember { mutableStateOf("") }
 
+
+
             Column(
                   modifier = Modifier
                         .fillMaxSize()
@@ -75,10 +77,12 @@ import com.example.banterbox.viewmodel.AuthViewModel
                   Button(
                         onClick = {
                               authViewModel.signUp(email,password,firstName,lastName)
+                              onNavigateToLogin()
                               email = ""
                               password = ""
                               firstName = ""
                               lastName = ""
+
                         },
                         modifier = Modifier
                               .fillMaxWidth()
